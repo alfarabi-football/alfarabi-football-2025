@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بطولة الفارابي 2025 - تفاعلي بالأسماء الأصلية</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 20px; }
+    h2 { text-align: center; color: #2c3e50; }
+    table { width: 80%; margin: auto; border-collapse: collapse; background-color: #fff; }
+    th, td { border: 1px solid #ccc; padding: 12px; text-align: center; }
+    th { background-color: #f9ca24; }
+    .stage { background-color: #ecf0f1; font-weight: bold; text-align: center; }
+    input[type=number] { width: 50px; }
+  </style>
+</head>
+<body>
+
+<h2>الأدوار النهائية - بطولة الفارابي المتوسطة 2025</h2>
+
+<table id="matches">
+  <tr><th>المرحلة</th><th>الفريق الأول</th><th>النتيجة</th><th>الفريق الثاني</th><th>الفائز</th></tr>
+  <tr class="stage"><td colspan="5">ربع النهائي</td></tr>
+  <tr>
+    <td>مباراة 1</td><td>فواز الغامدي</td>
+    <td><input type="number" id="scoreA1"> - <input type="number" id="scoreB1"></td>
+    <td>عبد الإله المعدي</td><td id="winner1"></td>
+  </tr>
+  <tr>
+    <td>مباراة 2</td><td>محمد الدوسري</td>
+    <td><input type="number" id="scoreA2"> - <input type="number" id="scoreB2"></td>
+    <td>أحمد الشهري</td><td id="winner2"></td>
+  </tr>
+  <tr>
+    <td>مباراة 3</td><td>عادل المحمادي</td>
+    <td><input type="number" id="scoreA3"> - <input type="number" id="scoreB3"></td>
+    <td>عبد الله الشهري</td><td id="winner3"></td>
+  </tr>
+  <tr>
+    <td>مباراة 4</td><td>علي آل محفوظ</td>
+    <td><input type="number" id="scoreA4"> - <input type="number" id="scoreB4"></td>
+    <td>خالد الغامدي</td><td id="winner4"></td>
+  </tr>
+
+  <tr class="stage"><td colspan="5">نصف النهائي</td></tr>
+  <tr>
+    <td>مباراة 5</td><td id="semi1A">الفائز من مباراة 1</td>
+    <td><input type="number" id="scoreA5"> - <input type="number" id="scoreB5"></td>
+    <td id="semi1B">الفائز من مباراة 2</td><td id="winner5"></td>
+  </tr>
+  <tr>
+    <td>مباراة 6</td><td id="semi2A">الفائز من مباراة 3</td>
+    <td><input type="number" id="scoreA6"> - <input type="number" id="scoreB6"></td>
+    <td id="semi2B">الفائز من مباراة 4</td><td id="winner6"></td>
+  </tr>
+
+  <tr class="stage"><td colspan="5">النهائي</td></tr>
+  <tr>
+    <td>مباراة 7</td><td id="finalA">الفائز من مباراة 5</td>
+    <td><input type="number" id="scoreA7"> - <input type="number" id="scoreB7"></td>
+    <td id="finalB">الفائز من مباراة 6</td><td id="winner7"></td>
+  </tr>
+</table>
+
+<br>
+<div style="text-align: center;">
+  <button onclick="calculateWinners()">حساب الفائزين</button>
+</div>
+
+<script>
+function calculateWinners() {
+  let q1a = parseInt(document.getElementById("scoreA1").value);
+  let q1b = parseInt(document.getElementById("scoreB1").value);
+  let w1 = (q1a > q1b) ? "فواز الغامدي" : (q1b > q1a) ? "عبد الإله المعدي" : "";
+  document.getElementById("winner1").innerText = w1;
+  document.getElementById("semi1A").innerText = w1;
+
+  let q2a = parseInt(document.getElementById("scoreA2").value);
+  let q2b = parseInt(document.getElementById("scoreB2").value);
+  let w2 = (q2a > q2b) ? "محمد الدوسري" : (q2b > q2a) ? "أحمد الشهري" : "";
+  document.getElementById("winner2").innerText = w2;
+  document.getElementById("semi1B").innerText = w2;
+
+  let q3a = parseInt(document.getElementById("scoreA3").value);
+  let q3b = parseInt(document.getElementById("scoreB3").value);
+  let w3 = (q3a > q3b) ? "عادل المحمادي" : (q3b > q3a) ? "عبد الله الشهري" : "";
+  document.getElementById("winner3").innerText = w3;
+  document.getElementById("semi2A").innerText = w3;
+
+  let q4a = parseInt(document.getElementById("scoreA4").value);
+  let q4b = parseInt(document.getElementById("scoreB4").value);
+  let w4 = (q4a > q4b) ? "علي آل محفوظ" : (q4b > q4a) ? "خالد الغامدي" : "";
+  document.getElementById("winner4").innerText = w4;
+  document.getElementById("semi2B").innerText = w4;
+
+  let s1a = parseInt(document.getElementById("scoreA5").value);
+  let s1b = parseInt(document.getElementById("scoreB5").value);
+  let w5 = (s1a > s1b) ? w1 : (s1b > s1a) ? w2 : "";
+  document.getElementById("winner5").innerText = w5;
+  document.getElementById("finalA").innerText = w5;
+
+  let s2a = parseInt(document.getElementById("scoreA6").value);
+  let s2b = parseInt(document.getElementById("scoreB6").value);
+  let w6 = (s2a > s2b) ? w3 : (s2b > s2a) ? w4 : "";
+  document.getElementById("winner6").innerText = w6;
+  document.getElementById("finalB").innerText = w6;
+
+  let f1a = parseInt(document.getElementById("scoreA7").value);
+  let f1b = parseInt(document.getElementById("scoreB7").value);
+  let w7 = (f1a > f1b) ? w5 : (f1b > f1a) ? w6 : "";
+  document.getElementById("winner7").innerText = w7;
+}
+</script>
+
+</body>
+</html>
