@@ -46,10 +46,10 @@
   <tr>
     <td>مباراة 5</td><td id="semi1A">الفائز من مباراة 1</td>
     <td><input type="number" id="scoreA5"> - <input type="number" id="scoreB5"></td>
-    <td id="semi1B">الفائز من مباراة 2</td><td id="winner5"></td>
+    <td id="semi1B">الفائز من مباراة 3</td><td id="winner5"></td>
   </tr>
   <tr>
-    <td>مباراة 6</td><td id="semi2A">الفائز من مباراة 3</td>
+    <td>مباراة 6</td><td id="semi2A">الفائز من مباراة 2</td>
     <td><input type="number" id="scoreA6"> - <input type="number" id="scoreB6"></td>
     <td id="semi2B">الفائز من مباراة 4</td><td id="winner6"></td>
   </tr>
@@ -79,13 +79,13 @@ function calculateWinners() {
   let q2b = parseInt(document.getElementById("scoreB2").value);
   let w2 = (q2a > q2b) ? "محمد الدوسري" : (q2b > q2a) ? "أحمد الشهري" : "";
   document.getElementById("winner2").innerText = w2;
-  document.getElementById("semi1B").innerText = w2;
+  document.getElementById("semi2A").innerText = w2;
 
   let q3a = parseInt(document.getElementById("scoreA3").value);
   let q3b = parseInt(document.getElementById("scoreB3").value);
   let w3 = (q3a > q3b) ? "عادل المحمادي" : (q3b > q3a) ? "عبد الله الشهري" : "";
   document.getElementById("winner3").innerText = w3;
-  document.getElementById("semi2A").innerText = w3;
+  document.getElementById("semi1B").innerText = w3;
 
   let q4a = parseInt(document.getElementById("scoreA4").value);
   let q4b = parseInt(document.getElementById("scoreB4").value);
@@ -95,13 +95,13 @@ function calculateWinners() {
 
   let s1a = parseInt(document.getElementById("scoreA5").value);
   let s1b = parseInt(document.getElementById("scoreB5").value);
-  let w5 = (s1a > s1b) ? w1 : (s1b > s1a) ? w2 : "";
+  let w5 = (s1a > s1b) ? w1 : (s1b > s1a) ? w3 : "";
   document.getElementById("winner5").innerText = w5;
   document.getElementById("finalA").innerText = w5;
 
   let s2a = parseInt(document.getElementById("scoreA6").value);
   let s2b = parseInt(document.getElementById("scoreB6").value);
-  let w6 = (s2a > s2b) ? w3 : (s2b > s2a) ? w4 : "";
+  let w6 = (s2a > s2b) ? w2 : (s2b > s2a) ? w4 : "";
   document.getElementById("winner6").innerText = w6;
   document.getElementById("finalB").innerText = w6;
 
